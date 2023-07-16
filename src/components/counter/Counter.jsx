@@ -1,18 +1,15 @@
+import { useState } from 'react'
 import './Counter.css'
 
 export default function Counter() {
 
-    /* const buttonStyle = {
-        fontSize:"16px",
-        backgroundColor:"#00a5ab",
-        width:"100px",
-        margin:"10px",
-        color:"white",
-        padding:"15px",
-        borderRadius:"30px"
-    }; */
+    //inserting a state to component, returns current state and function to update the state
+    const state = useState(0);
 
     function incrementCounterFunction(){
+        state[1](state[0] + 1);//calling the update function and changing the current state
+        console.log(state[0]);
+        console.log(state[1]);
         console.log('increment clicked')
     }
 
