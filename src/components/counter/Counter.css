@@ -1,7 +1,6 @@
 
-.CountButton {
+button {
     font-size:16px;
-    background-color:#00a5ab;
     width:100px;
     margin:10px;
     color:white;
@@ -9,6 +8,10 @@
     border-radius:30px;
     border-color: black;
     border-width: 5px;
+}
+
+.CountButton {
+    background-color:#00a5ab;
 }
 
 .Count {
@@ -19,4 +22,7 @@
 .totalcount {
     font-size: 150px;
     color: #00a5ab;
+}
+.resetButton {
+    background-color:#824f8c;
 }
