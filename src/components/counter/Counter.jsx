@@ -10,26 +10,41 @@ export default function Counter(){
         setCount(count + increaseBy)
     }
 
+    function decrementCounterParentFunction(increaseBy){
+        setCount(count - increaseBy)
+    }
+
     return(
         <>
             <span className="totalcount">{count}</span>
-            <CounterButton increaseBy={1}></CounterButton>
-            <CounterButton increaseBy={2}></CounterButton>
-            <CounterButton increaseBy={5}></CounterButton>
+            <CounterButton increaseBy={1} 
+            incrementMethod={incrementCounterParentFunction} 
+            decrementMethod={decrementCounterParentFunction}>
+            </CounterButton>
+            <CounterButton increaseBy={2} 
+            incrementMethod={incrementCounterParentFunction} 
+            decrementMethod={decrementCounterParentFunction}>
+            </CounterButton>
+            <CounterButton increaseBy={5} 
+            incrementMethod={incrementCounterParentFunction} 
+            decrementMethod={decrementCounterParentFunction}>
+            </CounterButton>
         </>
     )
 }
 
-function CounterButton({increaseBy}) {
+function CounterButton({increaseBy, incrementMethod, decrementMethod}) {
 
     const [count, setCount] = useState(0);
 
     function incrementCounterFunction(){
         setCount(count + increaseBy)
+        incrementMethod(increaseBy)
     }
 
     function decrementCounterFunction() {
         setCount(count - increaseBy)
+        decrementMethod(increaseBy)
     }
 
     return (
