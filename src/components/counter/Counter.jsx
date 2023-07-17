@@ -1,17 +1,17 @@
 import { useState } from 'react'
+import { PropTypes } from 'prop-types';
 import './Counter.css'
 
-export default function Counter() {
+export default function Counter({increaseBy}) {
 
-    //mapping the values in array
     const [count, setCount] = useState(0);
 
     function incrementCounterFunction(){
-        setCount(count + 1)
+        setCount(count + increaseBy)
     }
 
     function decrementCounterFunction() {
-        setCount(count - 1)
+        setCount(count - increaseBy)
     }
 
     return (
@@ -20,11 +20,21 @@ export default function Counter() {
             <div>
             <button className="CountButton" 
                 onClick={incrementCounterFunction}
-            >+1</button>
+            >+{increaseBy}</button>
             <button className="CountButton" 
                 onClick={decrementCounterFunction}
-            >-1</button>
+            >-{increaseBy}</button>
             </div>
             </div>
     )
+}
+
+//adding constaraints on property
+Counter.propTypes =  {
+    increaseBy: PropTypes.number
+}
+
+//adding default values to props
+Counter.defaultProps = {
+    increaseBy: 1
 }
